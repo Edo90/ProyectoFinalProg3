@@ -25,6 +25,5 @@ namespace WebApplication6.Models
         public int CursoID { get; set; }
         [ForeignKey("CursoID")]
         public Curso Curso { get; set; }
-        private int test;
     }
 }

@@ -22,7 +22,16 @@ namespace WebApplication6.Controllers
         public async Task<IActionResult> Index()
         {
             var webApplication6Context = _context.Estudiante.Include(e => e.Curso);
-            return View(await webApplication6Context.ToListAsync());
+            var estudiantesList = await webApplication6Context.ToListAsync();
+
+            foreach (var item in estudiantesList)
+            {
+                if (item.Grado == 0)
+                {
+                    item.Grado = 'N';
+                }
+            }
+            return View(estudiantesList);
         }
 
         // GET: Estudiantes/Details/5
@@ -41,6 +50,11 @@ namespace WebApplication6.Controllers
                 return NotFound();
             }
 
+            if (estudiante.Grado == 0)
+            {
+                estudiante.Grado = 'N';
+            }
+
             return View(estudiante);
         }
 
@@ -48,6 +62,7 @@ namespace WebApplication6.Controllers
         public IActionResult Create()
         {
             ViewData["CursoID"] = new SelectList(_context.Curso, "ID", "Nombre");
+            ViewData["CharSelectList"] = new SelectList(new List<char>() { 'A','B','C','D','F' });
             return View();
         }
 
@@ -82,6 +97,7 @@ namespace WebApplication6.Controllers
                 return NotFound();
             }
             ViewData["CursoID"] = new SelectList(_context.Curso, "ID", "Nombre", estudiante.CursoID);
+            ViewData["CharSelectList"] = new SelectList(new List<char>() { 'A', 'B', 'C', 'D', 'F' });
             return View(estudiante);
         }
 

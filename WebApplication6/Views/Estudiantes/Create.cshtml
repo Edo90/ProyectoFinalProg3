@@ -1,7 +1,7 @@
 ﻿@model WebApplication6.Models.Estudiante
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Crear Estudiante";
 }
 
 <h2>Create</h2>
@@ -34,7 +34,9 @@
             </div>
             <div class="form-group">
                 <label asp-for="Grado" class="control-label"></label>
-                <input asp-for="Grado" class="form-control" />
+                <select asp-for="Grado" class="form-control"asp-items="ViewBag.CharSelectList" disabled>
+                    <option disabled selected> --Seleccione--</option>
+                </select>
                 <span asp-validation-for="Grado" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -49,7 +51,7 @@
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Volver a la lista</a>
 </div>
 
 @section Scripts {

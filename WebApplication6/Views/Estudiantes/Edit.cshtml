@@ -35,7 +35,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="Grado" class="control-label"></label>
-                <input asp-for="Grado" class="form-control" />
+                <select asp-for="Grado" class="form-control" asp-items="ViewBag.CharSelectList"></select>
                 <span asp-validation-for="Grado" class="text-danger"></span>
             </div>
             <div class="form-group">
