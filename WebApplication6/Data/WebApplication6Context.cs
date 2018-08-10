@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using WebApplication6.Models;
 
 namespace WebApplication6.Models
 {
-    public class WebApplication6Context : DbContext
+    public class WebApplication6Context : IdentityDbContext
     {
         public WebApplication6Context (DbContextOptions<WebApplication6Context> options)
             : base(options)

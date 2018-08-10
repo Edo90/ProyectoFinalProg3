@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebApplication6.Models;
 
 namespace WebApplication6.Migrations
 {
     [DbContext(typeof(WebApplication6Context))]
-    partial class WebApplication6ContextModelSnapshot : ModelSnapshot
+    [Migration("20180810210553_CreateIdentitySchema2")]
+    partial class CreateIdentitySchema2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
